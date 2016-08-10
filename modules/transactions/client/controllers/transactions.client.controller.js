@@ -17,6 +17,7 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    vm.productSave = productUpdate;
 
     vm.customers = CustomersService.query();
     vm.products = ProductsService.query();
@@ -59,5 +60,32 @@
         vm.error = res.data.message;
       }
     }
+
+    // Update Product with new transaction
+    function productUpdate(isValid) {
+      var product = vm.transaction.product;
+      product.inventory -= transaction.quantity;
+
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'vm.form.transactionForm');
+        return false;
+      }
+
+      // TODO: move create/update logic to service
+      if (product._id) {
+        product.$update(successCallback, errorCallback);
+      } else {
+        product.$save(successCallback, errorCallback);
+      }
+
+      function successCallback(res) {
+        console.log('you updated product inventory');
+      }
+
+      function errorCallback(res) {
+        vm.error = res.data.message;
+      }
+    }
+
   }
 })();

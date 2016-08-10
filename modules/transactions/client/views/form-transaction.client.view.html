@@ -3,7 +3,8 @@
     <h1>{{vm.transaction._id ? 'Edit Transaction' : 'New Transaction'}}</h1>
   </div>
   <div class="col-md-12">
-    <form name="vm.form.transactionForm" class="form-horizontal" ng-submit="vm.save(vm.form.transactionForm.$valid)" novalidate>
+    <!-- <form name="vm.form.transactionForm" class="form-horizontal" ng-submit="vm.save(vm.form.transactionForm.$valid)" novalidate> -->
+    <form name="vm.form.transactionForm" class="form-horizontal" ng-submit="vm.productUpdate(vm.form.transactionForm.$valid); vm.save(vm.form.transactionForm.$valid);" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
           <!--Customer-->

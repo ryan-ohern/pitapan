@@ -15,6 +15,7 @@ var path = require('path'),
  */
 exports.create = function(req, res) {
   var transaction = new Transaction(req.body);
+  // var product = new Product(req.body);
   transaction.user = req.user;
 
   transaction.save(function(err) {
@@ -25,23 +26,30 @@ exports.create = function(req, res) {
     } else {
       res.jsonp(transaction);
     }
+
+    // var product = transaction.product[0];
+    // console.log(product.inventory);
+    // product.inventory -= transaction.quantity;
+    // console.log(product.inventory);
+  
+    // product.update(function(err) {
+    //   if (err) {
+    //     return res.status(400).send({
+    //       message: errorHandler.getErrorMessage(err)
+    //     });
+    //   } else {
+    //     res.jsonp(product);
+    //   }
+    // });
+
   });
 
   // UPDATE PRODUCT INVENTORY
-  var product = transaction.product[0];
-  console.log(product.inventory);
-  product.inventory -= transaction.quantity;
-  console.log(product.inventory);
-  
-  product.save(function(err) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.jsonp(transaction);
-    }
-  });
+  // product = transaction.product[0];
+  // console.log(product.inventory);
+  // product.inventory -= transaction.quantity;
+  // console.log(product.inventory);
+  // console.log(product);
 };
 
 /**
