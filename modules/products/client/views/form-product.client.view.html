@@ -26,7 +26,8 @@
           </div>   
           <!--Department-->
           <label class="control-label" for="department">Department</label>
-          <input name="department" type="text" ng-model="vm.product.department" id="department" class="form-control" placeholder="Department" required>
+          <select name="department" type="text" ng-options="item as item.name for item in vm.departments" ng-model="vm.product.department" id="product" class="form-control" placeholder="Department" required>
+          </select>
           <div ng-messages="vm.form.productForm.department.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Product department is required.</p>
           </div>    

@@ -6,9 +6,9 @@
     .module('employees')
     .controller('EmployeesController', EmployeesController);
 
-  EmployeesController.$inject = ['$scope', '$state', 'Authentication', 'employeeResolve'];
+  EmployeesController.$inject = ['$scope', '$state', 'Authentication', 'employeeResolve', '$resource', 'DepartmentsService'];
 
-  function EmployeesController ($scope, $state, Authentication, employee) {
+  function EmployeesController ($scope, $state, Authentication, employee, $resource, DepartmentsService) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -17,6 +17,7 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    vm.departments = DepartmentsService.query();
 
     // Remove existing Employee
     function remove() {
@@ -39,6 +40,8 @@
         vm.employee.$save(successCallback, errorCallback);
       }
 
+      updateDepartmentEmployees();
+
       function successCallback(res) {
         $state.go('employees.view', {
           employeeId: res._id
@@ -49,5 +52,29 @@
         vm.error = res.data.message;
       }
     }
+
+    function updateDepartmentEmployees() {
+      // assign the selected dept from drop down to var department that will be updated
+      var department = vm.employee.department;
+      // re-assign product.department to just the department name - prevents circular loop
+      vm.employee.department = vm.employee.department.name;
+      // push product to department products array
+      department.employees.push(vm.employee);
+
+      if (department._id) {
+        department.$update(successCallback, errorCallback);
+      } else {
+        department.$save(successCallback, errorCallback);
+      }
+
+      function successCallback(res) {
+        console.log('you updated product inventory');
+      }
+
+      function errorCallback(res) {
+        vm.error = res.data.message;
+      }
+    }
+
   }
 })();
