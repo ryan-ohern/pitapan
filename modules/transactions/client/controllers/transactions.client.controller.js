@@ -17,7 +17,7 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
-    vm.productSave = productUpdate;
+    vm.productUpdate = productUpdate;
 
     vm.customers = CustomersService.query();
     vm.products = ProductsService.query();
@@ -35,21 +35,25 @@
         $scope.$broadcast('show-errors-check-validity', 'vm.form.transactionForm');
         return false;
       }
+      var product = vm.transaction.product;
 
       // TODO: move create/update logic to service
+      if (product.inventory >= transaction.quantity){
+        // add Total Price to transaction object
+        vm.transaction.totalPrice = vm.transaction.product.price * vm.transaction.quantity;
 
-      // add Total Price to transaction object
-      vm.transaction.totalPrice = vm.transaction.product.price * vm.transaction.quantity;
-      
-      // var decreaseInventoryBy = vm.transaction.quantity;
-      // vm.products.inventory -= decreaseInventoryBy;
+        if (vm.transaction._id) {
+          vm.transaction.$update(successCallback, errorCallback);
+        } else {
+          vm.transaction.$save(successCallback, errorCallback);
+        }
+        // Update Product by calling function
+        productUpdate();
 
-      if (vm.transaction._id) {
-        vm.transaction.$update(successCallback, errorCallback);
       } else {
-        vm.transaction.$save(successCallback, errorCallback);
+        console.log("You don't have enough inventory");
+        alert("You don't have enough inventory");
       }
-
       function successCallback(res) {
         $state.go('transactions.view', {
           transactionId: res._id
@@ -62,14 +66,14 @@
     }
 
     // Update Product with new transaction
-    function productUpdate(isValid) {
+    function productUpdate() {
       var product = vm.transaction.product;
       product.inventory -= transaction.quantity;
 
-      if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'vm.form.transactionForm');
-        return false;
-      }
+      // if (!isValid) {
+      //   $scope.$broadcast('show-errors-check-validity', 'vm.form.transactionForm');
+      //   return false;
+      // }
 
       // TODO: move create/update logic to service
       if (product._id) {
