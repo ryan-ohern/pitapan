@@ -24,6 +24,14 @@
   </small>
   <p class="lead" data-ng-bind="vm.department.content"></p>
   <p>{{vm.department.description}}</p>
-  <p>{{vm.department.products[0].name}}</p>
-  <p>{{vm.department.employees[0].firstName}} {{vm.department.employees[0].lastName}}</p>
+  <!-- <p>{{vm.department.products[0].name}}</p>
+  <p>{{vm.department.employees[0].firstName}} {{vm.department.employees[0].lastName}}</p> -->
+  <h4>Products</h4>
+  <ul>
+    <li ng-repeat="product in vm.products | filter: vm.department.name">{{product.name}}</li>
+  </ul>
+  <h4>Employees</h4>
+  <ul>
+    <li ng-repeat="employee in vm.employees | filter: vm.department.name">{{employee.firstName}} {{employee.lastName}}</li>
+  </ul>
 </section>

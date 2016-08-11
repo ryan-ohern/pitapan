@@ -40,7 +40,7 @@
         vm.employee.$save(successCallback, errorCallback);
       }
 
-      updateDepartmentEmployees();
+      // updateDepartmentEmployees();
 
       function successCallback(res) {
         $state.go('employees.view', {

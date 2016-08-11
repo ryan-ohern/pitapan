@@ -6,9 +6,9 @@
     .module('departments')
     .controller('DepartmentsController', DepartmentsController);
 
-  DepartmentsController.$inject = ['$scope', '$state', 'Authentication', 'departmentResolve', '$resource', 'ProductsService'];
+  DepartmentsController.$inject = ['$scope', '$state', 'Authentication', 'departmentResolve', '$resource', 'ProductsService', 'EmployeesService'];
 
-  function DepartmentsController ($scope, $state, Authentication, department, $resource, ProductsService) {
+  function DepartmentsController ($scope, $state, Authentication, department, $resource, ProductsService, EmployeesService) {
     var vm = this;
 
     vm.authentication = Authentication;
@@ -17,6 +17,8 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    vm.products = ProductsService.query();
+    vm.employees = EmployeesService.query();
 
     // Remove existing Department
     function remove() {

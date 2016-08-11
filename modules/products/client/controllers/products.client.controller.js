@@ -40,7 +40,7 @@
         vm.product.$save(successCallback, errorCallback);
       }
 
-      updateDepartmentProducts();
+      // updateDepartmentProducts();
 
       function successCallback(res) {
         $state.go('products.view', {
