@@ -22,12 +22,12 @@
       <span data-ng-if="!vm.employee.user">Deleted User</span>
     </em>
   </small>
-  <p class="lead" data-ng-bind="vm.employee.content"></p>
+  <p class="lead" data-ng-bind="vm.employee.content"><br>
   <p>{{vm.employee.firstName}} {{vm.employee.lastName}}</p>
   <p>{{vm.employee.address}}</p>
-  <a href="mailto:{{vm.employee.email}}"><p>{{vm.employee.email}}</p></a>
+  <p><a href="mailto:{{vm.employee.email}}">{{vm.employee.email}}</a></p>
   <p>{{vm.employee.phoneNumber}}</p>
-  <p>Date of Birth: {{vm.employee.dob | date:'mediumDate'}}</p>
-  <p>Date Hired: {{vm.employee.dateHired | date:'mediumDate'}}</p>
-  <p>Department: {{vm.employee.department}}</p>
+  <p><b>Date of Birth:</b> {{vm.employee.dob | date:'mediumDate'}}</p>
+  <p><b>Date Hired:</b> {{vm.employee.dateHired | date:'mediumDate'}}</p>
+  <p><b>Department:</b> {{vm.employee.department}}</p>
 </section>

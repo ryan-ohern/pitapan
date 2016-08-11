@@ -1,9 +1,10 @@
 <section>
   <div class="page-header">
-    <h1 data-ng-bind="vm.transaction.orderTime | date:'mediumDate'"></h1>
-    <p>{{vm.transaction.customer}}</p>
-    <p>{{vm.transaction.totalPrice | currency}}</p>
-    <p>{{vm.transaction.product[0].name}} | {{vm.transaction.quantity}} | {{vm.transaction.product[0].price | currency}}</p> 
+    <h2 data-ng-bind="vm.transaction.orderTime | date:'medium'"></h2>
+    <p>Customer: {{vm.transaction.customer}}</p>
+    <p>Total Bill: {{vm.transaction.totalPrice | currency}}</p>
+    <p><b>Details:</b></p>
+    <p>Product: {{vm.transaction.product[0].name}} | Qty: {{vm.transaction.quantity}} | Item Price: {{vm.transaction.product[0].price | currency}}</p> 
   </div>
   <div class="pull-right"
        data-ng-show="vm.transaction.isCurrentUserOwner">

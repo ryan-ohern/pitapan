@@ -23,12 +23,12 @@
     </em>
   </small>
   <p class="lead" data-ng-bind="vm.department.content"></p>
-  <p>{{vm.department.description}}</p>
+  <p>Description: {{vm.department.description}}</p>
   <!-- <p>{{vm.department.products[0].name}}</p>
   <p>{{vm.department.employees[0].firstName}} {{vm.department.employees[0].lastName}}</p> -->
   <h4>Products</h4>
   <ul>
-    <li ng-repeat="product in vm.products | filter: vm.department.name">{{product.name}}</li>
+    <li ng-repeat="product in vm.products | filter: vm.department.name">{{product.name}} | {{product.price | currency}}</li>
   </ul>
   <h4>Employees</h4>
   <ul>

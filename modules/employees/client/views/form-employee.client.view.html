@@ -50,7 +50,7 @@
           </div>
         <!--Department-->
           <label class="control-label" for="department">Department</label>
-          <select name="department" type="text" ng-options="item as item.name for item in vm.departments" ng-model="vm.employee.department" id="product" class="form-control" placeholder="Department" required>
+          <select name="department" type="text" ng-options="item.name as item.name for item in vm.departments" ng-model="vm.employee.department" id="product" class="form-control" placeholder="Department" required>
           </select>
           <div ng-messages="vm.form.employeeForm.department.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Employee department is required.</p>   

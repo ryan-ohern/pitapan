@@ -2,26 +2,21 @@
   <div class="page-header">
     <h1>Departments</h1>
   </div>
-    <!--SEARCH-->
-  <input type="text" ng-model="search" placeholder="Search for a department" /><br>
+  <!--SEARCH-->
+  <input type="text" class="form-control" ng-model="search" placeholder="Search for a department" /><br>
   <!--ORDER BY-->
   <label>Order By</label>
   <select class="form-control" ng-model="sortBy">
     <option value="name">Department Name</option>
     <option value="sales">Total Sales</option>
-  </select>
+  </select><br>
   <div class="list-group">
-    <a data-ng-repeat="department in vm.departments | orderBy: sortBy"
+    <a data-ng-repeat="department in vm.departments | orderBy: sortBy | filter: search"
        data-ui-sref="departments.view({ departmentId: department._id })"
        class="list-group-item">
-      <small class="list-group-item-text">
-        Posted on
-        <span data-ng-bind="department.created | date:'mediumDate'"></span>
-        by
-        <span data-ng-if="department.user" data-ng-bind="department.user.displayName"></span>
-        <span data-ng-if="!department.user">Deleted User</span>
-      </small>
-      <h4 class="list-group-item-heading" data-ng-bind="department.name"></h4>
+      <!--List View--> 
+      <h5 class="list-group-item-heading" data-ng-bind="department.name"></h5>
+      <small>{{department.description}}</small>
     </a>
   </div>
   <div class="alert alert-warning text-center" data-ng-if="vm.departments.$resolved && !vm.departments.length">

@@ -25,7 +25,7 @@
   <p class="lead" data-ng-bind="vm.customer.content"></p>
   <p>{{vm.customer.firstName}} {{vm.customer.lastName}}</p>
   <p>{{vm.customer.address}}</p>
-  <a href="mailto:{{vm.customer.email}}"><p>{{vm.customer.email}}</p></a>
+  <p><a href="mailto:{{vm.customer.email}}">{{vm.customer.email}}</a></p>
   <p>{{vm.customer.phoneNumber}}</p>
   <p>Date of Birth: {{vm.customer.dob | date:'mediumDate'}}</p>
   <p>Last Purchase: {{vm.customer.lastPurchase | date:'mediumDate'}}</p>
