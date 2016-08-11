@@ -28,6 +28,6 @@
   <p>Department: {{vm.product.department}}</p>
   <p>Price: {{vm.product.price | currency}}</p>
   <p>Cost: {{vm.product.cost | currency}}</p>
-  <p>Margin: {{vm.product.cost / vm.product.price * 100}}%</p>
+  <p>Margin: {{vm.product.cost / vm.product.price * 100 | number: 2}}%</p>
   <p>Inventory: {{vm.product.inventory}}</p>
 </section>
