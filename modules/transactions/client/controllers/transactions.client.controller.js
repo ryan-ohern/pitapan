@@ -51,8 +51,7 @@
         productUpdate();
 
       } else {
-        console.log("You don't have enough inventory");
-        alert("You don't have enough inventory");
+        alert('You do not have enough inventory');
       }
       function successCallback(res) {
         $state.go('transactions.view', {
