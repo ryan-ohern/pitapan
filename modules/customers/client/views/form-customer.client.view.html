@@ -37,7 +37,8 @@
             <p class="help-block error-text" ng-message="required">Customer address is required.</p>   
           </div>
         <!--D.O.B-->
-          <label class="control-label" for="dob">Date of Birth</label>
+          <label class="control-label" for="dob">Date of Birth</label><br>
+          <small><i>If not using Chrome Browser, input date as YYYY-MM-DD</i></small>
           <input name="dob" type="date" ng-model="vm.customer.dob" id="dob" class="form-control" placeholder="1/1/1990" required>
           <div ng-messages="vm.form.customerForm.address.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Customer date of birth is required.</p>   

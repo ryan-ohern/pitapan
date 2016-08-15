@@ -37,13 +37,15 @@
             <p class="help-block error-text" ng-message="required">Employee address is required.</p>   
           </div>
         <!--Date of Birth-->
-          <label class="control-label" for="dob">Date of Birth</label>
+          <label class="control-label" for="dob">Date of Birth</label><br>
+          <small><i>If not using Chrome Browser, input date as YYYY-MM-DD</i></small>
           <input name="dob" type="date" ng-model="vm.employee.dob" id="dob" class="form-control" required>
           <div ng-messages="vm.form.employeeForm.dob.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Employee date of birth is required.</p>   
           </div>  
         <!--Date Hired-->
-          <label class="control-label" for="dateHired">Date Hired</label>
+          <label class="control-label" for="dateHired">Date Hired</label><br>
+          <small><i>If not using Chrome Browser, input date as YYYY-MM-DD</i></small>
           <input name="dateHired" type="date" ng-model="vm.employee.dateHired" id="dateHired" class="form-control" required>
           <div ng-messages="vm.form.employeeForm.address.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Employee date hired is required.</p>   
