@@ -39,13 +39,14 @@
         <!--D.O.B-->
           <label class="control-label" for="dob">Date of Birth</label><br>
           <small><i>If not using Chrome Browser, input date as YYYY-MM-DD</i></small>
-          <input name="dob" type="date" ng-model="vm.customer.dob" id="dob" class="form-control" placeholder="1/1/1990" required>
+          <input name="dob" type="date" ng-model="vm.customer.dob" id="dob" class="form-control" placeholder="YYYY-MM-DD" required>
           <div ng-messages="vm.form.customerForm.address.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Customer date of birth is required.</p>   
           </div> 
         <!--Last Purchase-->
           <label class="control-label" for="lastPurchase">Last Purchase</label>
-          <input name="lastPurchase" type="date" ng-model="vm.customer.lastPurchase" id="lastPurchase" class="form-control" placeholder="1/1/1990">           
+          <small><i>If not using Chrome Browser, input date as YYYY-MM-DD</i></small>
+          <input name="lastPurchase" type="date" ng-model="vm.customer.lastPurchase" id="lastPurchase" class="form-control" placeholder="YYYY-MM-DD">           
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.customer._id ? 'Update' : 'Create'}}</button>
