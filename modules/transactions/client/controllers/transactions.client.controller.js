@@ -22,6 +22,14 @@
     vm.customers = CustomersService.query();
     vm.products = ProductsService.query();
 
+    vm.role = Authentication.user.roles;
+    vm.isAdmin = false;
+    
+    // Set isAdmin to TRUE or FALSE to show edit/delete buttons
+    if (vm.role[0] === "admin" && vm.transaction.isCurrentUserOwner === false){
+      vm.isAdmin = true;
+    }
+
     // Remove existing Transaction
     function remove() {
       if (confirm('Are you sure you want to delete?')) {

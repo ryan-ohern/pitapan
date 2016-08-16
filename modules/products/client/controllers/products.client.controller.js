@@ -18,6 +18,13 @@
     vm.remove = remove;
     vm.save = save;
     vm.departments = DepartmentsService.query();
+    vm.role = Authentication.user.roles;
+    vm.isAdmin = false;
+    
+    // Set isAdmin to TRUE or FALSE to show edit/delete buttons
+    if (vm.role[0] === "admin" && vm.product.isCurrentUserOwner === false){
+      vm.isAdmin = true;
+    }
 
     // Remove existing Product
     function remove() {

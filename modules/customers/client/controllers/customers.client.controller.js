@@ -17,6 +17,13 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    vm.role = Authentication.user.roles;
+    vm.isAdmin = false;
+    
+    // Set isAdmin to TRUE or FALSE to show edit/delete buttons
+    if (vm.role[0] === "admin" && vm.customer.isCurrentUserOwner === false){
+      vm.isAdmin = true;
+    }
 
     // Remove existing Customer
     function remove() {
