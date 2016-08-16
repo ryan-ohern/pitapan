@@ -32,7 +32,7 @@
           departmentResolve: newDepartment
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['*'],
           pageTitle : 'Departments Create'
         }
       })
@@ -45,7 +45,7 @@
           departmentResolve: getDepartment
         },
         data: {
-          roles: ['user', 'admin'],
+          roles: ['*'],
           pageTitle: 'Edit Department {{ departmentResolve.name }}'
         }
       })
