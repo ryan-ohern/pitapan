@@ -26,7 +26,7 @@
     Menus.addSubMenuItem('topbar', 'departments', {
       title: 'Create Department',
       state: 'departments.create',
-      roles: ['user']
+      roles: ['user', 'admin']
     });
   }
 })();

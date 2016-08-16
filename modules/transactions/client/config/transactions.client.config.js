@@ -26,7 +26,7 @@
     Menus.addSubMenuItem('topbar', 'transactions', {
       title: 'Create Transaction',
       state: 'transactions.create',
-      roles: ['user']
+      roles: ['user', 'admin']
     });
   }
 })();

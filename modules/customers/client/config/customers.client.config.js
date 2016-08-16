@@ -26,7 +26,7 @@
     Menus.addSubMenuItem('topbar', 'customers', {
       title: 'Create Customer',
       state: 'customers.create',
-      roles: ['user']
+      roles: ['user', 'admin']
     });
   }
 })();

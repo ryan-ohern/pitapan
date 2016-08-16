@@ -26,7 +26,7 @@
     Menus.addSubMenuItem('topbar', 'employees', {
       title: 'Create Employee',
       state: 'employees.create',
-      roles: ['user']
+      roles: ['user', 'admin']
     });
   }
 })();
