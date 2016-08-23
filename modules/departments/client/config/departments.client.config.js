@@ -13,13 +13,14 @@
       title: 'Departments',
       state: 'departments',
       type: 'dropdown',
-      roles: ['*']
+      roles: ['user', 'admin']
     });
 
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'departments', {
       title: 'List Departments',
-      state: 'departments.list'
+      state: 'departments.list',
+      roles: ['user', 'admin']
     });
 
     // Add the dropdown create item

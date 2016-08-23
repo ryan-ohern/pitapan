@@ -20,6 +20,7 @@
         controller: 'DepartmentsListController',
         controllerAs: 'vm',
         data: {
+          roles: ['user', 'admin'],
           pageTitle: 'Departments List'
         }
       })
@@ -58,6 +59,7 @@
           departmentResolve: getDepartment
         },
         data:{
+          roles: ['user', 'admin'],
           pageTitle: 'Department {{ articleResolve.name }}'
         }
       });

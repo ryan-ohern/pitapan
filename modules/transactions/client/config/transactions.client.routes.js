@@ -20,6 +20,7 @@
         controller: 'TransactionsListController',
         controllerAs: 'vm',
         data: {
+          roles: ['user', 'admin'],
           pageTitle: 'Transactions List'
         }
       })
@@ -58,6 +59,7 @@
           transactionResolve: getTransaction
         },
         data:{
+          roles: ['user', 'admin'],
           pageTitle: 'Transaction {{ articleResolve.name }}'
         }
       });

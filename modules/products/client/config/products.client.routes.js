@@ -20,6 +20,7 @@
         controller: 'ProductsListController',
         controllerAs: 'vm',
         data: {
+          roles: ['user', 'admin'],
           pageTitle: 'Products List'
         }
       })
@@ -58,6 +59,7 @@
           productResolve: getProduct
         },
         data:{
+          roles: ['user', 'admin'],
           pageTitle: 'Product {{ articleResolve.name }}'
         }
       });

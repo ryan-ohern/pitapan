@@ -13,13 +13,14 @@
       title: 'Employees',
       state: 'employees',
       type: 'dropdown',
-      roles: ['*']
+      roles: ['user', 'admin']
     });
 
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'employees', {
       title: 'List Employees',
-      state: 'employees.list'
+      state: 'employees.list',
+      roles: ['user', 'admin']
     });
 
     // Add the dropdown create item

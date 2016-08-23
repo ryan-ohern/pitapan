@@ -13,13 +13,14 @@
       title: 'Customers',
       state: 'customers',
       type: 'dropdown',
-      roles: ['*']
+      roles: ['user', 'admin']
     });
 
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'customers', {
       title: 'List Customers',
-      state: 'customers.list'
+      state: 'customers.list',
+      roles: ['user', 'admin']
     });
 
     // Add the dropdown create item

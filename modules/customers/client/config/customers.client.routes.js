@@ -20,6 +20,7 @@
         controller: 'CustomersListController',
         controllerAs: 'vm',
         data: {
+          roles: ['user', 'admin'],
           pageTitle: 'Customers List'
         }
       })
@@ -58,6 +59,7 @@
           customerResolve: getCustomer
         },
         data:{
+          roles: ['user', 'admin'],
           pageTitle: 'Customer {{ articleResolve.name }}'
         }
       });

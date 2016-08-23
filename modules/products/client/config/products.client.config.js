@@ -13,13 +13,14 @@
       title: 'Products',
       state: 'products',
       type: 'dropdown',
-      roles: ['*']
+      roles: ['user', 'admin']
     });
 
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'products', {
       title: 'List Products',
-      state: 'products.list'
+      state: 'products.list',
+      roles: ['user', 'admin']
     });
 
     // Add the dropdown create item

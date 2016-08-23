@@ -13,13 +13,14 @@
       title: 'Transactions',
       state: 'transactions',
       type: 'dropdown',
-      roles: ['*']
+      roles: ['user', 'admin']
     });
 
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'transactions', {
       title: 'List Transactions',
-      state: 'transactions.list'
+      state: 'transactions.list',
+      roles: ['user', 'admin']
     });
 
     // Add the dropdown create item
