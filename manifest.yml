@@ -4,8 +4,8 @@ declared-services:
     label: mongodb
     plan: 100
 applications:
-- name: pitapan
-  host: pitapan-${random-word}
+- name: pitapetes
+  host: pitapetes-${random-word}
   memory: 128M
   services:
   - mean-mongo
